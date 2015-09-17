@@ -41,7 +41,7 @@ public class WeatherParserTest extends TestCase {
         weatherDataImperial.put("RelativeHumidityUnit", "%");
         weatherDataImperial.put("Pressure", "30.01");
         weatherDataImperial.put("PressureUnit", "inHg");
-        weatherDataImperial.put("PressureDirection", "F");
+        weatherDataImperial.put("PressureDirection", "falling");
 
         weatherInfo.put("Wind", "NE5");
         weatherInfo.put("Temperature", "60");
