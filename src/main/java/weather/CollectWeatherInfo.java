@@ -50,7 +50,7 @@ public class CollectWeatherInfo {
             Data weatherData = new Data(id, imperialData, metricsData);
 
             session.beginTransaction();
-            session.save(weatherData);
+            session.saveOrUpdate(weatherData);
             session.getTransaction().commit();
         }
     }
