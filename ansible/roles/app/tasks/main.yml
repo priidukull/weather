@@ -1,0 +1,20 @@
+- name: Add ubuntu to sudoers
+  lineinfile: "dest=/etc/sudoers regexp='^ubuntu ALL' line='ubuntu ALL=(ALL) NOPASSWD: ALL'"
+
+- name: Install add-apt-repostory
+  apt: name=software-properties-common state=latest
+
+- name: Install dependencies
+  apt: name={{ item }} update_cache=yes
+  with_items:
+    - git
+    - maven2
+
+
+
+- name: Git checkout
+  git: repo={{ item.repo }} dest={{ item.dest }} accept_hostkey=yes force=yes
+  sudo_user: ubuntu
+  with_items:
+    - { repo: 'git@github.com:priidukull/weather.git', dest: '/home/ubuntu/app' }
+  tags: checkout
